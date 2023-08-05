@@ -1,0 +1,16 @@
+{
+  "name": "my-express-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "my first server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "muzzi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
