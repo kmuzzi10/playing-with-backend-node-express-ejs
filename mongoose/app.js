@@ -4,37 +4,55 @@ mongoose.connect("mongodb://127.0.0.1:27017/fruitsDB");
 
 
 const fruitSchema = mongoose.Schema({
-  name: String,
-  rating: Number,
+  name:{ 
+    type:String,
+    required:true
+  },
+  rating: {
+    type:Number,
+    min:1,
+    max:10
+  },
   review: String
 });
 
 const Fruit = mongoose.model("Fruit",fruitSchema);
 
 const fruit = new Fruit({
-  name:"apple",
+  
   rating:7,
   review:"solid thing"
 })
 
-const kiwi = {
-  name:"kiwi",
-  rating:4,
-  reviw:"i dont like much kiwi"
-}
-const orange = {
-  name:"orange",
-  rating:9,
-  review:"i love this soo much"
-}
-const banana = {
-  name:"banana",
-  rating:6,
-  review:"weird texture"
-}
 
-Fruit.insertMany([kiwi,orange,banana])
-// fruit.save();
+fruit.save();
+
+
+
+// const kiwi = {
+//   name:"kiwi",
+//   rating:4,
+//   reviw:"i dont like much kiwi"
+// }
+// const orange = {
+//   name:"orange",
+//   rating:9,
+//   review:"i love this soo much"
+// }
+// const banana = {
+//   name:"banana",
+//   rating:6,
+//   review:"weird texture"
+// }
+
+// Fruit.insertMany([kiwi,orange,banana])
+
+// var fruits =await Fruit.find({}).exec(); 
+//  fruits.forEach(element => {
+//   console.log(element.name)
+ 
+// });
+mongoose.connection.close()
 
 const personSchema =mongoose.Schema({
   name:String,
