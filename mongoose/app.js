@@ -25,13 +25,14 @@ const fruit = new Fruit({
 })
 
 
-// await fruit.save();                                                     //save fruit
+//  await fruit.save();                                                     //save fruit
+
 
 // await Fruit.updateOne({_id:"64f25924b56c248e85498179"},{rating:10})        //update query
 
 // await Fruit.deleteOne({name:"grapes"})                                 //delete one
 
-// await Fruit.deleteMany({name:"bluebery"})                                    //delete many
+// await Fruit.deleteMany({name:"grapes"})                                    //delete many
 
 
 // const kiwi = {
@@ -57,24 +58,35 @@ const fruit = new Fruit({
 //   console.log(element.name)
  
 // });
-mongoose.connection.close()
 
-// const personSchema =mongoose.Schema({
-//   name:String,
-//   age:Number
-// });
 
-// const Person = mongoose.model("Person",personSchema);
+const personSchema =mongoose.Schema({
+  name:String,
+  age:Number,
+  favoriteFruit : fruitSchema
+});
 
+const Person = mongoose.model("Person",personSchema);
+const mango = new Fruit({
+  name:"mango",
+  rating:10,
+  review:"awesome fruit"
+})
+// mango.save()
+
+await Person.updateOne({_id: '64efe64595aad8b49b64148e'},{favoriteFruit:mango})
 
 // const person = new Person({
-//   name:"john",
-//   age:37
+//   name:"amy",
+//   age:12,
+//   favoriteFruit:pineapple
 // });
 
 
 // person.save();
 
+
+mongoose.connection.close()
 
 
 
