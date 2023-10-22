@@ -1,7 +1,7 @@
 import express from "express";
 const app = express();
 const port = 3000;
-
+//import ends
 app.get("/", (req, res) => {
   const data = {
     title: "EJS Tags",
